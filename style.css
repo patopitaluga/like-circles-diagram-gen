@@ -1,0 +1,64 @@
+body {
+  background: rgb(255, 204, 100);
+  padding: 0;
+  font-size: 16px;
+  font-family: monospace;
+  margin: 0;
+}
+
+input {
+  border: 0;
+  box-sizing: border-box;
+  border-radius: 3px;
+  display: block;
+  font-size: 16px;
+  font-family: monospace;
+  margin: 5px 0;
+  padding: 8px 12px;
+  width: 100%;
+}
+
+button {
+  background: #fefefe;
+  border-radius: 3px;
+  border: 1px #666 solid;
+  cursor: pointer;
+  font-size: 16px;
+  font-family: monospace;
+  margin: 5px 0;
+  padding: 8px 12px;
+}
+
+.col1 {
+  flex: 1 1 auto;
+  display: flex;
+}
+
+.col1 > div {
+  align-items: center;
+  display: flex;
+  height: 95%;
+  justify-content: center;
+  margin: auto;
+  width: 100%;
+}
+
+.loadingfile {
+  display: none;
+}
+
+.loadingfile.loadingfile--active {
+  align-items: center;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  left: 0;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+.loadingfile.loadingfile--active > div {
+  background: #eee;
+  margin: auto;
+  padding: 10px;
+}

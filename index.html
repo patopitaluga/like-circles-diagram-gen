@@ -1,0 +1,42 @@
+<html>
+<head>
+  <title>Like circle generator</title>
+
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1.0, viewport-fit=cover"/>
+
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+  <div style="display: flex;height: 100vh;">
+    <div class="col1">
+      <div id="container">
+      </div>
+    </div>
+    <div style="width: 200px; flex: 0 0 auto;background: #eee; padding: 10px;">
+      <input
+        type="text"
+        placeholder="List title"
+        value="Your list"
+        onchange="title = this.value"
+        id="titleInput"
+      />
+      <button
+        type="button"
+        id="export"
+      >Export</button>
+    </div>
+  </div>
+  <div style="width: 0; height: 0; overflow: hidden;">
+    <input type="file" id="fileInput" accept="image/*"/>
+  </div>
+  <div id="loadingfile" class="loadingfile">
+    <div>
+      Loading file...
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/p5@1.0.0/lib/p5.js"></script>
+  <script src="script.js"></script>
+<body>
+</html>
