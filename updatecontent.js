@@ -33,8 +33,8 @@ const updateContent = function(_thisP5Insance, _hideRings) {
   _thisP5Insance.text('You', 0, 3);
 
   // Draw the rings
+  _thisP5Insance.fill(0, 0, 0, 0);
   if (!_hideRings) {
-    _thisP5Insance.fill(0, 0, 0, 0);
     _thisP5Insance.stroke(255, 214, 130);
     _thisP5Insance.strokeWeight(sizesByLevel[1] + 1);
     _thisP5Insance.circle(0, 0, _thisP5Insance.width / 2.70);
