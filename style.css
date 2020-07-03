@@ -29,9 +29,31 @@ button {
   padding: 8px 12px;
 }
 
+.cols {
+  display: block;
+}
+
+@media only screen and (min-width: 768px) {
+
+  .cols {
+    display: flex;
+    height: 100vh;
+  }
+}
+
 .col1 {
-  flex: 1 1 auto;
+  height: 100vh;
   display: flex;
+  width: 100%;
+}
+
+@media only screen and (min-width: 768px) {
+
+  .col1 {
+    flex: 1 1 auto;
+    height: auto;
+    width: auto;
+  }
 }
 
 .col1 > div {
@@ -42,6 +64,20 @@ button {
   margin: auto;
   width: 100%;
 }
+
+.col2 {
+  background: #eee;
+  padding: 10px;
+}
+
+@media only screen and (min-width: 768px) {
+
+  .col2 {
+    flex: 0 0 auto;
+    width: 200px
+  }
+}
+
 
 .loadingfile {
   display: none;
