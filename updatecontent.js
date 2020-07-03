@@ -45,6 +45,15 @@ const updateContent = function(_thisP5Insance, _hideRings) {
     _thisP5Insance.strokeWeight(sizesByLevel[3] + 1);
     _thisP5Insance.circle(0, 0, _thisP5Insance.width / 1.2);
   }
+  _thisP5Insance.stroke(255, 255, 255);
+  _thisP5Insance.strokeWeight(_thisP5Insance.width / 250);
+  if (circlesByLevels[1].length > 0)
+    _thisP5Insance.circle(0, 0, _thisP5Insance.width / 2.70);
+  if (circlesByLevels[1].length > 1)
+    _thisP5Insance.circle(0, 0, _thisP5Insance.width / 1.625);
+  if (circlesByLevels[1].length > 2)
+    _thisP5Insance.circle(0, 0, _thisP5Insance.width / 1.2);
+
   _thisP5Insance.noStroke();
 
   // Draw the rest of the circles.
@@ -57,7 +66,6 @@ const updateContent = function(_thisP5Insance, _hideRings) {
 
       if (_eachCircle.image) {
         _eachCircle.p5Img = _thisP5Insance.createImage(_eachCircle.size, _eachCircle.size);
-        // _eachCircle.p5Img.resize(_eachCircle.size, _eachCircle.size);
 
         let width = _eachCircle.size;
         let proportionalHeight = Math.round((_eachCircle.size * _eachCircle.maxHeight) / _eachCircle.maxWidth);
