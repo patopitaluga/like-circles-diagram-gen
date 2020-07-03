@@ -23,8 +23,6 @@ const updateContent = function(_thisP5Insance, _hideRings) {
     Math.round(_thisP5Insance.width * 117 / 1080),
     Math.round(_thisP5Insance.width * 91 / 1080),
   ];
-  const offset = 45;
-
   // Draw the center circle.
   _thisP5Insance.fill(255, 255, 255);
   _thisP5Insance.noStroke();
@@ -49,9 +47,9 @@ const updateContent = function(_thisP5Insance, _hideRings) {
   _thisP5Insance.strokeWeight(_thisP5Insance.width / 250);
   if (circlesByLevels[1].length > 0)
     _thisP5Insance.circle(0, 0, _thisP5Insance.width / 2.70);
-  if (circlesByLevels[1].length > 1)
+  if (circlesByLevels[2].length > 0)
     _thisP5Insance.circle(0, 0, _thisP5Insance.width / 1.625);
-  if (circlesByLevels[1].length > 2)
+  if (circlesByLevels[3].length > 0)
     _thisP5Insance.circle(0, 0, _thisP5Insance.width / 1.2);
 
   _thisP5Insance.noStroke();
@@ -60,6 +58,11 @@ const updateContent = function(_thisP5Insance, _hideRings) {
   for (let r = 0; r <= 3; r++) {
     let angleAccumulatorForThisLevel = 0;
     circlesByLevels[r].forEach((_eachCircle) => {
+      let offset = 45;
+      if (r === 1) offset = 65;
+      if (r === 2) offset = 85;
+      if (r === 3) offset = 105;
+
       _eachCircle.x = radiusByLevels[r] * _thisP5Insance.sin(angleAccumulatorForThisLevel + offset);
       _eachCircle.y = radiusByLevels[r] * _thisP5Insance.cos(angleAccumulatorForThisLevel + offset);
       _eachCircle.size = sizesByLevel[r];
