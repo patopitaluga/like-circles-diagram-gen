@@ -2,8 +2,9 @@
  * Draws the user avatar.
  *
  * @param {object} _thisP5Insance - the p5 instance.
+ * @param {boolean} _hideRings -
  */
-const updateContent = function(_thisP5Insance) {
+const updateContent = function(_thisP5Insance, _hideRings) {
   /* global title, circlesByLevels, clickeableButtons */
 
   // Sets the background every time to replace previous render.
@@ -34,17 +35,16 @@ const updateContent = function(_thisP5Insance) {
   _thisP5Insance.text('You', 0, 3);
 
   // Draw the rings
-  _thisP5Insance.fill(0, 0, 0, 0);
-  _thisP5Insance.stroke(255, 214, 130);
-  _thisP5Insance.strokeWeight(sizesByLevel[1] + 1);
-  _thisP5Insance.circle(0, 0, _thisP5Insance.width / 2.70);
-
-  _thisP5Insance.strokeWeight(sizesByLevel[2] + 1);
-  _thisP5Insance.circle(0, 0, _thisP5Insance.width / 1.625);
-
-  _thisP5Insance.strokeWeight(sizesByLevel[3] + 1);
-  _thisP5Insance.circle(0, 0, _thisP5Insance.width / 1.2);
-
+  if (!_hideRings) {
+    _thisP5Insance.fill(0, 0, 0, 0);
+    _thisP5Insance.stroke(255, 214, 130);
+    _thisP5Insance.strokeWeight(sizesByLevel[1] + 1);
+    _thisP5Insance.circle(0, 0, _thisP5Insance.width / 2.70);
+    _thisP5Insance.strokeWeight(sizesByLevel[2] + 1);
+    _thisP5Insance.circle(0, 0, _thisP5Insance.width / 1.625);
+    _thisP5Insance.strokeWeight(sizesByLevel[3] + 1);
+    _thisP5Insance.circle(0, 0, _thisP5Insance.width / 1.2);
+  }
   _thisP5Insance.noStroke();
 
   // Draw the rest of the circles.
@@ -92,8 +92,8 @@ const updateContent = function(_thisP5Insance) {
   }
 
   // Sets the title that the user has written in the canvas.
-  _thisP5Insance.fill(0, 0, 0);
-  _thisP5Insance.textSize(32);
+  _thisP5Insance.fill(255, 255, 255);
+  _thisP5Insance.textSize(_thisP5Insance.height / 17);
   _thisP5Insance.textAlign(_thisP5Insance.CENTER, _thisP5Insance.CENTER);
   _thisP5Insance.text(title, 0, _thisP5Insance.height / -2.2);
 };

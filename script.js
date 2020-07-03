@@ -13,13 +13,17 @@ new p5(function(_thisP5Insance) {
   let containerWidth;
   let containerHeight;
   const maxImageSize = 221;
-  const theSetup = function(forceWidth) {
+
+  /**
+   * Sets the canvas size. Is run in the p5 setup, on window resize and on export.
+   */
+  const setCanvasSize = function(settings) {
     if (document.getElementById('defaultCanvas0'))
       document.getElementById('defaultCanvas0').style.display = 'none';
     containerWidth = Math.min(document.getElementById('container').offsetWidth, document.getElementById('container').offsetHeight);
     containerHeight = containerWidth;
-    if (forceWidth) {
-      containerWidth = forceWidth;
+    if (settings && settings.export) {
+      containerWidth = 1080;
       containerHeight = containerWidth;
     }
 
@@ -29,10 +33,10 @@ new p5(function(_thisP5Insance) {
     _thisP5Insance.background(255, 204, 100);
 
     _thisP5Insance.translate(containerWidth / 2, containerHeight / 2);
-    updateContent(_thisP5Insance);
+    updateContent(_thisP5Insance, (settings && settings.export));
   }
   _thisP5Insance.setup = function() {
-    theSetup();
+    setCanvasSize();
 
     let mouseIsOverAvatar = false;
     let mouseIsOverCircle = 0;
@@ -85,14 +89,14 @@ new p5(function(_thisP5Insance) {
   }
 
   window.addEventListener('resize', function() {
-    theSetup();
+    setCanvasSize();
   });
 
   document.getElementById('export').addEventListener('click', function() {
-    theSetup(1080);
+    setCanvasSize({ export: true });
 
-    _thisP5Insance.save(); // p5 image generator.
-    theSetup();
+    _thisP5Insance.save(title + '.jpg'); // p5 image generator.
+    setCanvasSize();
   });
 
   document.getElementById('titleInput').addEventListener('keyup', function() {
